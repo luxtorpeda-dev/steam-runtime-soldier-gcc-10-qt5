@@ -17,6 +17,7 @@ RUN wget ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.18.tar.bz2
 RUN tar xf isl-0.18.tar.bz2
 RUN mv isl-0.18 isl
 
+RUN ls -l
 RUN ./configure --prefix=/opt/gcc-10 --enable-languages=c,c++
 RUN make -j$(nproc)
 RUN make install
