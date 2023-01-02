@@ -4,7 +4,7 @@ RUN apt install -y wget xz-utils bzip2 make autoconf gcc-multilib g++-multilib l
 RUN wget https://ftp.wrz.de/pub/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz
 RUN tar xf gcc-10.2.0.tar.xz
 WORKDIR /root/gcc-10.2.0
-RUN wget https://gmplib.org/download/gmp/gmp-6.2.0.tar.xz
+RUN wget https://gmplib.org/download/gmp/gmp-6.2.0.tar.xz --no-check-certificate #TODO: find alternative host
 RUN tar xf gmp-6.2.0.tar.xz
 RUN mv gmp-6.2.0 gmp
 RUN wget https://ftp.gnu.org/gnu/mpfr/mpfr-4.1.0.tar.gz
