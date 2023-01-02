@@ -3,7 +3,7 @@ FROM registry.gitlab.steamos.cloud/steamrt/soldier/sdk:0.20220824.0
 RUN apt install -y wget xz-utils bzip2 make autoconf gcc-multilib g++-multilib libnss3-dev
 RUN wget https://ftp.wrz.de/pub/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz
 RUN tar xf gcc-10.2.0.tar.xz
-RUN WORKDIR /root/gcc-10.2.0
+WORKDIR /root/gcc-10.2.0
 RUN wget https://gmplib.org/download/gmp/gmp-6.2.0.tar.xz
 RUN tar xf gmp-6.2.0.tar.xz
 RUN mv gmp-6.2.0 gmp
