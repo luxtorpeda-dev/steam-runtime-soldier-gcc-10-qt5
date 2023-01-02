@@ -31,8 +31,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /opt/gcc-10/bin/gcc 100
 RUN update-alternatives --install /usr/bin/g++ g++ /opt/gcc-10/bin/g++ 100
 
 WORKDIR /root
-RUN export pfx="/root/local"
-RUN mkdir -p "$pfx"
+RUN mkdir -p /root/local
 
 RUN git clone https://github.com/qt/qt5.git source
 WORKDIR /root/source
@@ -42,6 +41,6 @@ WORKDIR /root
 
 RUN mkdir -p qt5-build
 WORKDIR /root/qt5-build
-RUN ../source/configure -opensource -nomake examples -nomake tests -confirm-license -prefix "$pfx/qt5" -skip qtconnectivity -skip qtandroidextras -skip qtpurchasing -skip qtserialbus -skip qtserialport -skip qtcharts -skip qtcanvas3d -skip qt3d -skip qtwebview -skip qtvirtualkeyboard -skip qtcharts -skip qtsensors -skip qtdatavis3d -skip qtdocgallery -skip qtfeedback -skip qtlocation -skip qttools -skip qttranslations -skip qtwebsockets -skip qtspeech
+RUN ../source/configure -opensource -nomake examples -nomake tests -confirm-license -prefix "/root/local/qt5" -skip qtconnectivity -skip qtandroidextras -skip qtpurchasing -skip qtserialbus -skip qtserialport -skip qtcharts -skip qtcanvas3d -skip qt3d -skip qtwebview -skip qtvirtualkeyboard -skip qtcharts -skip qtsensors -skip qtdatavis3d -skip qtdocgallery -skip qtfeedback -skip qtlocation -skip qttools -skip qttranslations -skip qtwebsockets -skip qtspeech
 RUN make -j $(nproc)
 RUN make install
