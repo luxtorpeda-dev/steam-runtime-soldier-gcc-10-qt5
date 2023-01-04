@@ -23,9 +23,9 @@ RUN ./configure --prefix=/opt/gcc-10 --enable-languages=c,c++
 RUN make -j$(nproc)
 RUN make install
 
-RUN export CC=/opt/gcc-10/bin/gcc
-RUN export CXX=/opt/gcc-10/bin/g++
-RUN export LDFLAGS="-Wl,-rpath,/opt/gcc-10/lib64"
+ENV CC=/opt/gcc-10/bin/gcc
+ENV CXX=/opt/gcc-10/bin/g++
+ENV LDFLAGS="-Wl,-rpath,/opt/gcc-10/lib64"
 
 RUN update-alternatives --install /usr/bin/gcc gcc /opt/gcc-10/bin/gcc 100
 RUN update-alternatives --install /usr/bin/g++ g++ /opt/gcc-10/bin/g++ 100
