@@ -30,6 +30,8 @@ ENV LDFLAGS="-Wl,-rpath,/opt/gcc-10/lib64"
 RUN update-alternatives --install /usr/bin/gcc gcc /opt/gcc-10/bin/gcc 100
 RUN update-alternatives --install /usr/bin/g++ g++ /opt/gcc-10/bin/g++ 100
 
+RUN gcc --version
+
 WORKDIR /root
 RUN mkdir -p /root/local
 
